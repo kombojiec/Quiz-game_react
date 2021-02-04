@@ -1,0 +1,9 @@
+.quiz__active{
+ width: 90rem;
+ margin: 1rem auto;
+ padding: 1rem;
+ border: 5px groove #fff;
+ border-radius: 0.5rem;
+ font-size: 2.5rem;
+ color: #ffffff;
+}
