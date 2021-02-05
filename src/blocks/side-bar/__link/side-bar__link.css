@@ -1,0 +1,18 @@
+.side-bar__link{
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  font-size: 3rem;
+  color: #fff;
+  transition: all 0.15s linear;
+}
+
+.side-bar__link:hover{
+  text-shadow: 0 0 1rem #fff;
+  box-shadow: 0 0 0.5rem #fff;
+}
+
+.side-bar__link:active{
+  text-shadow: 0 0 1rem #000;
+  box-shadow: 0 0 0.5rem #000;
+}

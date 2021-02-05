@@ -1,0 +1,30 @@
+.fa-bars{
+  font-size: 3rem;
+  color: aliceblue;
+  transition: all 0.2s linear;
+}
+
+.fa-bars:hover{
+  font-size: 3.5rem;
+  color: rgb(66 65 130);
+}
+
+.fa-bars:active{
+  font-size: 3rem;
+}
+
+
+.fa-times{
+  font-size: 3rem;
+  color: aliceblue;
+  transition: all 0.2s linear;
+}
+
+.fa-times:hover{
+  font-size: 3.5rem;
+  color:red;
+}
+
+.fa-times:active{
+  font-size: 3rem;
+}

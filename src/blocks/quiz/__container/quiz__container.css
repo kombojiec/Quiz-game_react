@@ -1,5 +1,6 @@
 .quiz__container{
  width: 90rem;
+ max-width: 80%;
  margin: 1rem auto;
  padding: 1rem;
  border: 5px groove #fff;

@@ -1,4 +1,5 @@
 @import url(./vendor/normalize.css);
+@import url(./blocks/ui/fontAwesome.css);
 @import url(./blocks/ui/failure.css);
 @import url(./blocks/ui/success.css);
 @import url(./blocks/body/body.css);
@@ -12,3 +13,10 @@
 @import url(./blocks/quiz/__answers-item/quiz__answers-item.css);
 @import url(./blocks/quiz/__button/quiz__button.css);
 @import url(./blocks/ui/disabled.css);
+@import url(./blocks/side-bar/side-bar.css);
+@import url(./blocks/side-bar/__button/side-bar__button.css);
+@import url(./blocks/side-bar/_type/side-bar_hidden.css);
+@import url(./blocks/side-bar/_type/side-bar_visible.css);
+@import url(./blocks/side-bar/__list/side-bar__list.css);
+@import url(./blocks/side-bar/__item/side-bar__item.css);
+@import url(./blocks/side-bar/__link/side-bar__link.css);

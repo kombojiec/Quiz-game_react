@@ -1,17 +1,19 @@
 import React, {Component} from 'react';
+import SideBar from '../components/SideBar';
 import '../index.css';
 
 export default class Layout extends Component{
 
- render(){
+  render(){
   return(
-   <div className="page">
-    <header></header>
-    <main className='main'>
-     {this.props.children}
-    </main>
-    <footer></footer>
-   </div>
+    <div className="page">
+      <header></header>
+      <main className='main'>
+        <SideBar />
+        {this.props.children}
+      </main>
+      <footer></footer>
+    </div>
   )
- }
+  }
 }

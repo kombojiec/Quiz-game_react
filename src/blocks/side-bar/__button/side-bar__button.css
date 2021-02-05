@@ -1,0 +1,16 @@
+.side-bar__button{
+  position: absolute;
+  right: -5rem;
+  top: 2rem;
+  background: transparent;
+  border: none;
+  outline:none;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.side-bar__button{
+  border: none;
+  outline: none;
+}
+
