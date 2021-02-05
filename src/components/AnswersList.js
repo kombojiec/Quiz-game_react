@@ -10,6 +10,9 @@ const AnswersList = props => {
           answer={answer}
           index={index}
           onAnswerClick={props.onAnswerClick}
+          answerState={props.answerState}
+          rightAnswerId={props.rightAnswerId}
+          answerId={props.answerId}
         />
       )
     })}

@@ -1,10 +1,14 @@
 @import url(./vendor/normalize.css);
+@import url(./blocks/ui/failure.css);
+@import url(./blocks/ui/success.css);
 @import url(./blocks/body/body.css);
 @import url(./blocks/page/page.css);
 @import url(./blocks/main/main.css);
 @import url(./blocks/quiz/quiz.css);
 @import url(./blocks/quiz/__title/quiz__title.css);
-@import url(./blocks/quiz/__active/quiz__active.css);
+@import url(./blocks/quiz/__container/quiz__container.css);
 @import url(./blocks/quiz/__header/quiz__header.css);
 @import url(./blocks/quiz/__answers/quiz__answers.css);
 @import url(./blocks/quiz/__answers-item/quiz__answers-item.css);
+@import url(./blocks/quiz/__button/quiz__button.css);
+@import url(./blocks/ui/disabled.css);

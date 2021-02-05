@@ -1,0 +1,7 @@
+.failure{
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+.failure:focus{
+  background-color: rgba(255, 0, 0, 0.5);
+}
