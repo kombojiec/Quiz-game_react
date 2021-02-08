@@ -12,6 +12,10 @@
 @import url(./blocks/page/page.css);
 @import url(./blocks/main/main.css);
 
+/* ============================= section ============================ */
+@import url(./blocks/section/section.css);
+@import url(./blocks/section/_type/section_type_quiz-list.css);
+
 /* ============================= quiz ============================ */
 @import url(./blocks/quiz/quiz.css);
 @import url(./blocks/quiz/__title/quiz__title.css);
@@ -33,4 +37,12 @@
 /* ============================= cover ============================ */
 @import url(./blocks/cover/cover.css);
 
-/* ============================= ============================ */
+/* ============================= quiz-list ============================ */
+@import url(./blocks/quiz-list/quiz-list.css);
+@import url(./blocks/quiz-list/__header/quiz-list__header.css);
+@import url(./blocks/quiz-list/__list/quiz-list__list.css);
+@import url(./blocks/quiz-list/__item/quiz-list__item.css);
+@import url(./blocks/quiz-list/__link/quiz-list__link.css);
+/* @import url(./blocks/quiz-list/quiz-list.css);
+@import url(./blocks/quiz-list/quiz-list.css);
+@import url(./blocks/quiz-list/quiz-list.css); */

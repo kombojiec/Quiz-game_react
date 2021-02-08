@@ -1,6 +1,24 @@
 import  {Component} from 'react';
+import {NavLink} from 'react-router-dom';
 import Cover from './Cover';
-const links = ['link 1', 'link 2', 'link 3', 'link 4', 'link 5']
+
+const links = [
+  {
+    path: '/',
+    name: 'Список',
+    exact: true
+  },
+  {
+    path: '/auth',
+    name: 'Авторизация',
+    exact: false
+  },
+  {
+    path: '/quiz-creator',
+    name: 'Создать',
+    exact: false
+  },
+]
 
 class SideBar extends Component{
   state = {
@@ -29,8 +47,8 @@ class SideBar extends Component{
             {links.map((link, index) => {
               return(
                 <li key={index} className="side-bar__item">
-                  <a href='##' className='side-bar__link'>{link}</a>
-              </li>
+                  <NavLink to={link.path} exact={link.exact} className='side-bar__link' onClick={this.closeSideBar} > {link.name} </NavLink>
+                </li>
               )
             })}
           </ul>

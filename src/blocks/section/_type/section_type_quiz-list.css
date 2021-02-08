@@ -1,0 +1,4 @@
+.section_type_quiz-list{
+  flex-grow: 1;
+  background: linear-gradient(90deg, #fd8355 0%, #f0576c 37%, #f79cbd 100%);
+}

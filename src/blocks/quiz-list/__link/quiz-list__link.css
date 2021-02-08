@@ -1,0 +1,9 @@
+.quiz-list__link{
+  font-size: 3rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+.quiz-list__link:hover{
+  text-shadow: 0 0 1rem #fff;
+}
