@@ -1,10 +1,18 @@
+/* ============================= vendor ============================ */
 @import url(./vendor/normalize.css);
+
+/* ============================= ui ============================ */
 @import url(./blocks/ui/fontAwesome.css);
 @import url(./blocks/ui/failure.css);
 @import url(./blocks/ui/success.css);
+@import url(./blocks/ui/disabled.css);
+
+/* ============================= main ============================ */
 @import url(./blocks/body/body.css);
 @import url(./blocks/page/page.css);
 @import url(./blocks/main/main.css);
+
+/* ============================= quiz ============================ */
 @import url(./blocks/quiz/quiz.css);
 @import url(./blocks/quiz/__title/quiz__title.css);
 @import url(./blocks/quiz/__container/quiz__container.css);
@@ -12,7 +20,8 @@
 @import url(./blocks/quiz/__answers/quiz__answers.css);
 @import url(./blocks/quiz/__answers-item/quiz__answers-item.css);
 @import url(./blocks/quiz/__button/quiz__button.css);
-@import url(./blocks/ui/disabled.css);
+
+/* ============================= side-bar ============================ */
 @import url(./blocks/side-bar/side-bar.css);
 @import url(./blocks/side-bar/__button/side-bar__button.css);
 @import url(./blocks/side-bar/_type/side-bar_hidden.css);
@@ -20,3 +29,8 @@
 @import url(./blocks/side-bar/__list/side-bar__list.css);
 @import url(./blocks/side-bar/__item/side-bar__item.css);
 @import url(./blocks/side-bar/__link/side-bar__link.css);
+
+/* ============================= cover ============================ */
+@import url(./blocks/cover/cover.css);
+
+/* ============================= ============================ */
