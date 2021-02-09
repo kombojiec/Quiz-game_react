@@ -1,0 +1,17 @@
+.auth__input{
+  width: 80%;
+  margin: 0 auto 1.5rem;
+  padding: 0;
+  height: 4rem;
+  border: 0.5rem groove #fff;
+  border-radius: 1rem;
+  outline: none;
+  font-size: 2rem;
+  padding: 0.2rem 1rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.auth__input:focus{  
+  border: 0.5rem groove rgb(104 218 233)
+}

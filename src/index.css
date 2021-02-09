@@ -15,6 +15,7 @@
 /* ============================= section ============================ */
 @import url(./blocks/section/section.css);
 @import url(./blocks/section/_type/section_type_quiz-list.css);
+@import url(./blocks/section/_type/section_type_auth.css);
 
 /* ============================= quiz ============================ */
 @import url(./blocks/quiz/quiz.css);
@@ -45,6 +46,12 @@
 @import url(./blocks/quiz-list/__list/quiz-list__list.css);
 @import url(./blocks/quiz-list/__item/quiz-list__item.css);
 @import url(./blocks/quiz-list/__link/quiz-list__link.css);
-/* @import url(./blocks/quiz-list/quiz-list.css);
-@import url(./blocks/quiz-list/quiz-list.css);
-@import url(./blocks/quiz-list/quiz-list.css); */
+
+/* ============================= auth ============================ */
+@import url(./blocks/auth/auth.css);
+@import url(./blocks/auth/__form/auth__form.css);
+@import url(./blocks/auth/__header/auth.header.css);
+@import url(./blocks/auth/__input/auth__input.css);
+@import url(./blocks/auth/__button/auth__button.css);
+
+

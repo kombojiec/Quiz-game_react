@@ -1,0 +1,24 @@
+.auth__button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto 1.5rem;
+  padding: 0;
+  height: 5rem;
+  border: 0.5rem groove #fff;
+  border-radius: 1rem;
+  outline: none;
+  font-size: 2rem;
+  padding: 0.2rem 1rem;
+  background: rgb(75, 206, 218);
+}
+
+.auth__button:hover{
+  background-color: rgb(35, 187, 200);
+  box-shadow: 0 0 0.5rem #fff;
+}
+
+.auth__button:active{
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+}
