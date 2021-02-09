@@ -23,7 +23,9 @@
 @import url(./blocks/quiz/__header/quiz__header.css);
 @import url(./blocks/quiz/__answers/quiz__answers.css);
 @import url(./blocks/quiz/__answers-item/quiz__answers-item.css);
+@import url(./blocks/quiz/__buttons/quiz__buttons.css);
 @import url(./blocks/quiz/__button/quiz__button.css);
+@import url(./blocks/quiz/__button-link/quiz__button-link.css);
 
 /* ============================= side-bar ============================ */
 @import url(./blocks/side-bar/side-bar.css);

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
+import questions from '../utils/questions';
 
 const list = [1, 2, 3];
 
@@ -10,7 +11,7 @@ export default class QuizList extends Component{
       list.map((test, index) =>{
         return(
           <li className='quiz-list__item' >
-            <NavLink key={index} to={'/quiz-list/' + test} className='quiz-list__link'
+            <NavLink key={index} to={'/quiz/' + test} className='quiz-list__link'
             >Test #{test}</NavLink>
           </li>
         )
