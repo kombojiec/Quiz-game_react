@@ -19,6 +19,7 @@
 @import url(./blocks/section/_type/section_type_auth.css);
 @import url(./blocks/section/_type/section_type_create.css);
 @import url(./blocks/section/__header/section__header.css);
+@import url(./blocks/section/__header/_type/section__header_type_create.css);
 
 /* ============================= quiz ============================ */
 @import url(./blocks/quiz/quiz.css);
@@ -66,3 +67,9 @@
 @import url(./blocks/create/__form/create__form.css);
 @import url(./blocks/create/__select/create__select.css);
 @import url(./blocks/create/__button/create__button.css);
+
+/* ============================= input ============================ */
+@import url(./blocks/select/select.css);
+@import url(./blocks/select/__label/select__label.css);
+@import url(./blocks/select/__select/select__select.css);
+

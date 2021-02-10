@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Input from './Input'
+import Select from './Select'
 import inputCreator from '../utils/inputCreator';
 
 function createAnswerConfig(id){
@@ -34,6 +35,7 @@ export default class QuizCreator extends Component{
 
   state = {
     questions: [],
+    rightAnswer: 1,
     formInputs: createInputsConfig(),
   }
 
@@ -73,14 +75,32 @@ export default class QuizCreator extends Component{
     })
   }
 
+  selectChangeHandler = event =>{
+    console.log(event.target.value)
+  }
+
   render(){
+
+    const select = <Select
+      value={this.rightAnswer}
+      label={'Выберите правильный ответ'}
+      onChange={this.selectChangeHandler}
+      options= {[
+        {text:1, value: 1},
+        {text:2, value: 2},
+        {text:3, value: 3},
+        {text:4, value: 4},
+      ]}
+    ></Select>
+
     return(
       <section className='section section_type_create'>
-        <h1 className='section__header'>Создание теста</h1>
+        <h1 className='section__header section__header_type_create'>Создание теста</h1>
         <div className='create'>
           <form className='create__form'>            
-            <select className='create__select'></select>
             {this.renderInputs()}            
+            {/* <select className='create__select'>Select</select> */}
+            {select}
             <button className='create__button' onClick={this.addQuestionHandler} >Добавить вопрос</button>
             <button className='create__button' onClick={this.createQuizHandler} >Создать тест</button>
           </form>

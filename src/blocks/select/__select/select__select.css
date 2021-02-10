@@ -1,0 +1,21 @@
+.select__select{
+  width: 100%;
+  margin: 0 auto 1.5rem;
+  padding: 0;
+  height: 4rem;
+  border: 0.5rem groove #fff;
+  border-radius: 1rem;
+  outline: none;
+  font-size: 2rem;
+  padding: 0.2rem 1rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.select__select:hover{
+  box-shadow: 0 0 0.5rem rgb(0, 0, 0, 0.5)
+}
+
+.select__select:focus{
+  border: 0.2rem groove rgba(0, 0, 0, 0.5);
+}
