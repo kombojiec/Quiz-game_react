@@ -1,0 +1,8 @@
+.input__input{
+  margin: 0 auto .5rem;
+  padding: 0;
+  outline: none;
+  padding: 0.2rem 1rem;
+  box-sizing: border-box;
+  text-align: center;
+}

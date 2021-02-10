@@ -3,6 +3,7 @@
   flex-direction: column;
   margin: auto;
   width: 50%;
+  max-width: 70rem;
   padding: 3rem;
   border: 1rem groove #fff;
   border-radius: 1rem;
