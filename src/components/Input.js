@@ -1,9 +1,9 @@
 
 
 
-const isInvalid = ({valid, shouldValid, touched}) =>{
-  return !valid && shouldValid && touched;
-}
+// const isInvalid = ({valid, shouldValid, touched}) =>{
+//   return !valid && shouldValid && touched;
+// }
 
 
 const Input = props =>{

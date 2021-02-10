@@ -1,0 +1,9 @@
+.create__form{
+  width: 60%;
+  max-width: 70rem;
+  background: rgb(218, 206, 206);
+  margin: 0 auto 2rem;
+  padding: 2rem;
+  border: 1rem groove #fff;
+  border-radius: 1rem;
+}

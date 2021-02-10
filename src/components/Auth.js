@@ -107,8 +107,8 @@ export default class Auth extends Component{
   render(){
     return(
       <section className="section section_type_auth" >
+        <h1 className="section__header section__header_type_auth"> Авторизация</h1>
         <div className="auth">
-          <h1 className="auth__header"> Авторизация</h1>
           <form onSubmit={this.formSubmit} className="auth__form">            
             {this.renderInputs()}            
             <button className="auth__button" disabled={!this.state.isFormValid} >Вход</button>

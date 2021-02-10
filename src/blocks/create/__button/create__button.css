@@ -1,0 +1,26 @@
+.create__button{ 
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 5rem;
+  margin: 0 auto 1.5rem;
+  padding: 0;
+  border: 0.5rem groove #fff;
+  border-radius: 1rem;
+  outline: none;
+  font-size: 2rem;
+  padding: 0.2rem 1rem;
+  background: #f0613c;
+}
+
+.create__button:hover{
+  background: #ea7051;
+  box-shadow: 0 0 0.5rem #fff;
+}
+
+.create__button:active{
+  /* background: #ea7051; */
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+}
