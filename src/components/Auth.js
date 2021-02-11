@@ -99,8 +99,7 @@ export default class Auth extends Component{
     let isFormValid = true;
     if(Object.keys(formInputs).some(item => !formInputs[item].valid)){
       isFormValid = false;
-    }
-    
+    }    
     this.setState({formInputs, isFormValid});
   }
 

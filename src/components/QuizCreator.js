@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Input from './Input'
 import Select from './Select'
-import inputCreator from '../utils/inputCreator';
+import {inputCreator, validateInput, validateForm} from '../utils/inputCreator';
 
 function createAnswerConfig(id){
   return(
@@ -37,18 +37,44 @@ export default class QuizCreator extends Component{
     questions: [],
     rightAnswer: 1,
     formInputs: createInputsConfig(),
+    isFormValid: false,
   }
 
   addQuestionHandler = (event) =>{
     event.preventDefault();
+    const questArray = this.state.questions.concat();
+    const {answer1, answer2, answer3, answer4, question} = this.state.formInputs;
+    const quiz = {
+      question: question.value,
+      id: this.state.questions.length,
+      rightAnswer: this.state.rightAnswer,
+      answer1: answer1.value,
+      answer2: answer2.value,
+      answer3: answer3.value,
+      answer4: answer4.value,      
+    }
+    questArray.push(quiz);
+    this.setState({
+      questions: questArray,
+      formInputs: createInputsConfig(),
+      isFormValid: false,
+    })   
   }
 
   createQuizHandler = (event) =>{
     event.preventDefault();
+    console.log(this.state.questions)
   }
 
-  inputChangeHandler = (event, config) => {
-
+  inputChangeHandler = (event, item) => {
+    const formInputs = {...this.state.formInputs};
+    const input = formInputs[item]
+    input.touched = true;
+    input.value = event;
+    input.valid = validateInput(input.value, input.validation);
+    const isFormValid = validateForm(formInputs);
+    formInputs[item] = input;
+    this.setState({formInputs, isFormValid})
   }
 
   renderInputs = () => {
@@ -62,10 +88,10 @@ export default class QuizCreator extends Component{
             value={input.value}
             valid={input.valid}
             shouldValidate={!!input.validation}
-            touched={true}
+            touched={input.touched}
             errorMessage={input.errorMessage}   
             inputClass={input.inputClass}  
-            errorClass={input.errorClass}
+            errorClass={!input.touched || input.valid? input.errorClass: null}
           >     
           </Input>
 
@@ -76,11 +102,11 @@ export default class QuizCreator extends Component{
   }
 
   selectChangeHandler = event =>{
-    console.log(event.target.value)
+    // console.log(event.target.value)
+    this.setState({rightAnswer: event.target.value})
   }
 
   render(){
-
     const select = <Select
       value={this.rightAnswer}
       label={'Выберите правильный ответ'}
@@ -98,11 +124,10 @@ export default class QuizCreator extends Component{
         <h1 className='section__header section__header_type_create'>Создание теста</h1>
         <div className='create'>
           <form className='create__form'>            
-            {this.renderInputs()}            
-            {/* <select className='create__select'>Select</select> */}
-            {select}
-            <button className='create__button' onClick={this.addQuestionHandler} >Добавить вопрос</button>
-            <button className='create__button' onClick={this.createQuizHandler} >Создать тест</button>
+            {this.renderInputs()}   
+            {select}         
+            <button className='create__button' onClick={this.addQuestionHandler} disabled={!this.state.isFormValid} >Добавить вопрос</button>
+            <button className='create__button' onClick={this.createQuizHandler} disabled={!this.state.questions.length} >Создать тест</button>
           </form>
         </div>
       </section>

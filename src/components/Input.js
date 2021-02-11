@@ -1,6 +1,3 @@
-
-
-
 // const isInvalid = ({valid, shouldValid, touched}) =>{
 //   return !valid && shouldValid && touched;
 // }
