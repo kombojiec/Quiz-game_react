@@ -19,15 +19,16 @@ const AnswerItem = props => {
     default:
   }
   if(props.answerState){
-    if(props.index !== props.answerId) {disabled = 'disabled';} else {disabled = false;}
+    console.log(props)
+    if(props.index !== props.answerId) {disabled = 'disabled';} 
     props.answerState === 'success'? result = 'success disabled': result = 'failure disabled';
   }
   return (
     <li>
       <button  type='button' disabled={disabled}
       className={`quiz__answers-item ${disabled? 'disabled': ''} ${props.index === props.answerId? result: ''}`}
-      onClick={() => props.onAnswerClick(props.index)}>
-        {`${index}. ${props.answer.text}`}
+      onClick={() => props.onAnswerClick(props.index+1)}>
+        {`${index}. ${props.answer}`}
       </button>
     </li> 
   )

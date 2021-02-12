@@ -1,33 +1,36 @@
 import React, {Component} from 'react';
 import QuizActive from '../components/QuizActive';
 import QuizResult from '../components/QuizResult';
-import questions from '../utils/questions';
+import axios from '../utils/axios';
+import Loader from '../components/Loader';
 
-export default class Quiz extends Component{
+export default  class Quiz extends Component{
 
   state = {
     currentQuestion: 0, 
-    quiz: questions,
+    quiz: [],
     rightAnswers: 0,
     answerState: null,
     answerId: null,
     isFinished: false,
+    isLoading: true,
   }
 
   onAnswerClickHandler = (answerId) =>{
     if(this.state.answerState) return;
     this.setState({answerState: ''})
-    const question = questions[this.state.currentQuestion];
-    this.setState({answerId})
-
-    if(question.rightAnswerId === answerId){
+    const question = this.state.quiz[this.state.currentQuestion];
+    this.setState({answerId: answerId-1})
+    if(+question.rightAnswer === +answerId){
       this.setState({rightAnswers: this.state.rightAnswers + 1});
       this.setState({answerState: 'success'});
     }else{
       this.setState({answerState: 'failure'});
     }
     if(this.isLastQuestion()){
-      this.setState({isFinished: true})
+      setTimeout(() => {
+        this.setState({isFinished: true})
+      },1000)
     }else{
       setTimeout(() => {
         this.setState({answerState: null})
@@ -38,13 +41,13 @@ export default class Quiz extends Component{
   }
 
   isLastQuestion = () =>{
-    return this.state.currentQuestion + 1 === questions.length;
+    return this.state.currentQuestion + 1 === this.state.quiz.length;
   }
 
   playAgainHandler = () =>{
     this.setState({
       currentQuestion: 0, 
-      quiz: questions,
+      quiz: this.state.quiz,
       rightAnswers: 0,
       answerState: null,
       answerId: null,
@@ -52,27 +55,41 @@ export default class Quiz extends Component{
     })
   }
 
+  async componentDidMount(){    
+    try{
+      await axios.get(`quizes/${this.props.match.params.id}.json`)
+      .then(res => {
+        this.setState({quiz: res.data})
+      })
+      .finally(()=> this.setState({isLoading: false}))
+    }catch(error){
+      console.log(error)}
+   
+  }
+
   render(){
     return(
-      <section className='quiz'>
-        <h1 className='quiz__title'>Quiz for programmer</h1>
-        {this.state.isFinished?
+      <section className=' section quiz'>        
+        <h1 className='section__header quiz__title'>Quiz for programmer</h1>
+        {this.state.isLoading?
+        <Loader/>:
+        this.state.isFinished?
           <QuizResult 
             result={this.state.rightAnswers}
-            ammount={questions.length}
+            ammount={this.state.quiz.length}
             playAgain={this.playAgainHandler}
-          />
-        :
-          <QuizActive
+            />:
+            <QuizActive            
             answers={this.state.quiz[this.state.currentQuestion].answers}
             question={this.state.quiz[this.state.currentQuestion].question}
             currentQuestion={this.state.currentQuestion + 1}
             questionsLength={this.state.quiz.length}
             onAnswerClick={this.onAnswerClickHandler}
             answerState={this.state.answerState}
-            rightAnswerId={questions.rightAnswerId}
+            rightAnswerId={this.state.quiz[this.state.currentQuestion].rightAnswer}
             answerId={this.state.answerId}
-          />
+            />
+          
         }
       </section>
     )

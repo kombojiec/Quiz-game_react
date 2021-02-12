@@ -1,35 +1,67 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-// import questions from '../utils/questions';
+import axios from '../utils/axios';
+import Loader from './Loader';
 
-const list = [1, 2, 3];
 
-export default class QuizList extends Component{
+
+class QuizList extends Component{
+
+  state = {
+    quizes: [],
+    isLoading: true,
+  }
 
   renderList(){
     return(
-      list.map((test, index) =>{
+      this.state.quizes.map((test, index) =>{
         return(
-          <li className='quiz-list__item' >
-            <NavLink key={index} to={'/quiz/' + test} className='quiz-list__link'
-            >Test #{test}</NavLink>
+          <li className='quiz-list__item' key={index}>
+            <NavLink key={index} to={'/quiz/' + test.id} className='quiz-list__link'
+            >{test.name}</NavLink>
           </li>
         )
       })
     )
   }
 
+   componentDidMount(){
+    try{
+      const quizes = [];
+      axios.get('quizes.json')
+        .then(res => {
+          Object.keys(res.data).map((item, index) => {
+            const quiz = {
+              name: `Test ${index+1}`,
+              id: item,
+            }
+            quizes.push(quiz);
+            return(quizes)
+          })
+          this.setState({quizes});
+        })
+        .finally(() => this.setState({isLoading: false}))
+    }catch(error){
+      console.log(error)
+    }
+  }
+
   render(){
     return(
-      <section className='section section_type_quiz-list'>
+      <section className='section section_type_quiz-list'>        
         <h1 className='section__header section__header_type_quiz-list'>Список тестов</h1>
-        <div className='quiz-list'>
-          <ul className='quiz-list__list' >
-            {this.renderList()}
-          </ul>
-        </div>
+        {this.state.isLoading?
+          <Loader/>:
+          <div className='quiz-list'>
+            <ul className='quiz-list__list' >
+              {this.renderList()}
+            </ul>
+          </div>
+        }
       </section>
 
     )
   }
 }
+
+export default QuizList;

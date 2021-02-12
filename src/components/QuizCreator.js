@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Input from './Input'
 import Select from './Select'
 import {inputCreator, validateInput, validateForm} from '../utils/inputCreator';
+import axios from '../utils/axios';
 
 function createAnswerConfig(id){
   return(
@@ -48,10 +49,12 @@ export default class QuizCreator extends Component{
       question: question.value,
       id: this.state.questions.length,
       rightAnswer: this.state.rightAnswer,
-      answer1: answer1.value,
-      answer2: answer2.value,
-      answer3: answer3.value,
-      answer4: answer4.value,      
+      answers: [
+        {answer1: answer1.value},
+        {answer2: answer2.value},
+        {answer3: answer3.value},
+        {answer4: answer4.value},      
+      ],
     }
     questArray.push(quiz);
     this.setState({
@@ -63,7 +66,18 @@ export default class QuizCreator extends Component{
 
   createQuizHandler = (event) =>{
     event.preventDefault();
-    console.log(this.state.questions)
+    try{
+        axios.post('quizes.json', this.state.questions)
+        .then(res => console.log(res))
+        .finally(()=> this.setState({
+          questions: [],
+          rightAnswer: 1,
+          formInputs: createInputsConfig(),
+          isFormValid: false,
+        }))
+    }catch(error){
+      console.log(error)
+    }
   }
 
   inputChangeHandler = (event, item) => {
@@ -102,7 +116,6 @@ export default class QuizCreator extends Component{
   }
 
   selectChangeHandler = event =>{
-    // console.log(event.target.value)
     this.setState({rightAnswer: event.target.value})
   }
 

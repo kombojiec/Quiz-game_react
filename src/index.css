@@ -73,3 +73,7 @@
 @import url(./blocks/select/__label/select__label.css);
 @import url(./blocks/select/__select/select__select.css);
 
+/* ============================= loader ============================ */
+@import url(./blocks/loader/loader.css);
+
+
