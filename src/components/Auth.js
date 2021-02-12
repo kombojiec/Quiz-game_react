@@ -1,13 +1,18 @@
 import React, {Component} from 'react';
 import Input from './Input';
 import is from 'is_js';
+import axios from 'axios';
 
 export default class Auth extends Component{
 
 
   state = {
     isFormValid: false,
-    formInputs: {
+    formInputs: this.inputsState(),
+  }
+
+  inputsState(){
+    return {
       email: {
         type: 'text',
         value: '',
@@ -68,8 +73,40 @@ export default class Auth extends Component{
     )
   }
 
-  formSubmit = (event)=>{
+  signInHandler = async (event) => {
     event.preventDefault();
+    const userData = {
+      email: this.state.formInputs.email.value,
+      password: this.state.formInputs.password.value,
+      returnSecureToken: true,
+    }
+    try{
+      await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCX-4nnT3LMJNRwYn8wv_HfddQy5K-WQ7g', userData)
+      .then(res => console.log(res.data))
+      .finally(()=> {        
+        this.setState({formInputs: this.inputsState()})
+      })
+    }catch(error){
+      console.log(error)
+    }
+    
+  }
+
+  signUpHandler = async() => {
+    const userData = {
+      email: this.state.formInputs.email.value,
+      password: this.state.formInputs.password.value,
+      returnSecureToken: true,
+    }
+    try{
+      await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCX-4nnT3LMJNRwYn8wv_HfddQy5K-WQ7g', userData)
+      .then(res => console.log(res.data))
+      .finally(()=> {        
+        this.setState({formInputs: this.inputsState()})
+      })
+    }catch(error){
+      console.log(error)
+    }
   }
 
   validateInput(value, validation){
@@ -108,10 +145,10 @@ export default class Auth extends Component{
       <section className="section section_type_auth" >
         <h1 className="section__header section__header_type_auth"> Авторизация</h1>
         <div className="auth">
-          <form onSubmit={this.formSubmit} className="auth__form">            
+          <form onSubmit={this.signInHandler} className="auth__form">            
             {this.renderInputs()}            
             <button className="auth__button" disabled={!this.state.isFormValid} >Вход</button>
-            <button className="auth__button" disabled={!this.state.isFormValid} >Регистрация</button>
+            <button className="auth__button" disabled={!this.state.isFormValid} onClick={this.signUpHandler} >Регистрация</button>
           </form>
         </div>
       </section>
